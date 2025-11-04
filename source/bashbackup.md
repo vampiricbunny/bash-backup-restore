@@ -264,7 +264,7 @@ fi
 
 ```
 
-Usage Instructions
+## Usage Instructions
 1.	Backup Execution: 
 ./abrs.sh backup config.ini
 

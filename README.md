@@ -33,9 +33,7 @@ Prerequisites
 •	For notifications: mail command or SMTP configuration.
 Configuration File Example (config.ini)
 Create a simple INI-style config file for easy customization:
-
-
-	Testing and Extension: 
+ 
 # To-Do Before Implementation in a Real-World Environment:
 o	Test with sample directories and a test GPG key (gpg --gen-key).
 o	Add unit tests using Bats framework.
