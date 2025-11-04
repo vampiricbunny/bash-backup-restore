@@ -46,6 +46,3 @@ o	Extend for incremental backups using rsync or multi-provider support (example:
 
 •	Technical Depth: Demonstrates robust error handling, modularity, and tool integration that is core to automation / automation roles.
 
-
-
-
