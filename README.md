@@ -36,11 +36,14 @@ Create a simple INI-style config file for easy customization:
  
 # To-Do Before Implementation in a Real-World Environment:
 o	Test with sample directories and a test GPG key (gpg --gen-key).
+
 o	Add unit tests using Bats framework.
+
 o	Extend for incremental backups using rsync or multi-provider support (example:, gsutil for GCS).
 
 # Why This Project is important:
 •	Relevance: Addresses real-world needs in data protection and compliance (e.g., GDPR backups).
+
 •	Technical Depth: Demonstrates robust error handling, modularity, and tool integration that is core to automation / automation roles.
 
 
