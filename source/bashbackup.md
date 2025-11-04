@@ -1,7 +1,11 @@
-```
+
+## How To Use
+The following is broken into chunks incase some is not needed.
+
+
 
 ## Script:
-
+```
 [BACKUP]
 source_dirs=/home/user/docs,/var/log,/etc/nginx
 backup_dir=/backups
@@ -24,9 +28,9 @@ smtp_user=user
 smtp_pass=pass
 Main Script (abrs.sh)
 Below is the complete, commented Bash script. Save it as abrs.sh and make it executable (chmod +x abrs.sh).
+```
 
-
-
+```
 #!/bin/bash
 
 # Automated Backup and Restore System (ABRS)
@@ -79,9 +83,11 @@ load_config() {
     export SMTP_PASS="${config[NOTIFICATION_smtp_pass]:-}"
 }
 
+```
 
 
 # Create backup archive
+```
 create_backup() {
     local timestamp=$(date '+%Y%m%d_%H%M%S')
     local archive_name="backup_${timestamp}.tar.${COMPRESSION}"
@@ -123,8 +129,9 @@ create_backup() {
     log "INFO" "Backup created successfully: $archive_path"
     echo "$archive_path"  # Return path for further processing
 }
-
+```
 # Upload to S3 (if enabled)
+```
 upload_to_s3() {
     local archive_path="$1"
     if [[ "$UPLOAD" != "true" || -z "$S3_BUCKET" ]]; then
@@ -139,8 +146,9 @@ upload_to_s3() {
     }
     log "INFO" "Upload successful."
 }
-
+```
 # Manage retention (delete old backups)
+```
 manage_retention() {
     local cutoff_date=$(date -d "${RETENTION_DAYS} days ago" '+%Y%m%d') 2>/dev/null || {
         log "ERROR" "Date calculation failed."
@@ -156,8 +164,10 @@ manage_retention() {
         fi
     done
 }
-
+```
 # Send notification email
+
+```
 send_notification() {
     local status="$1"
     local message="$2"
@@ -176,8 +186,9 @@ send_notification() {
         echo -e "Subject: $subject\n\n$body" | mail -s "$subject" "$NOTIFY_EMAIL"
     fi || log "WARN" "Notification failed."
 }
-
+```
 # Restore function (called with --restore flag)
+```
 restore_backup() {
     local archive_path="$1"
     local target_dir="${2:-/tmp/restore}"
@@ -209,8 +220,10 @@ restore_backup() {
     rm -f "$temp_file"
     log "INFO" "Restore completed successfully."
 }
-
+```
 # Main execution
+
+```
 main() {
     local mode="${1:-backup}"  # Default to backup; use --restore for restore
     local config_file="${2:-config.ini}"
@@ -241,13 +254,15 @@ main() {
 
     log "INFO" "ABRS execution completed."
 }
-
+```
 # Run main if called directly
+```
+
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
     main "$@"
 fi
 
-
+```
 
 Usage Instructions
 1.	Backup Execution: 

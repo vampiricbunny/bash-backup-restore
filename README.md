@@ -11,23 +11,31 @@ To demonstrate proficiency in Bash scripting for roles in DevOps, system adminis
 # What it does and skills it shows: 
 
 •	Advanced string manipulation and array handling.
+
 •	Error handling with traps and conditional logic.
+
 •	Integration with external tools (e.g., tar, gpg, aws CLI for cloud storage).
+
 •	Logging with timestamps and rotation.
+
 •	Configuration via INI-like files for portability.
+
 •	Scheduling compatibility (e.g., via cron).
 The project is production-ready in concept, scalable for enterprise use, and can be extended (e.g., to support multiple cloud providers). Deploy it on a GitHub repository with a detailed README, unit tests (using bats), and example configurations to impress recruiters.
 Prerequisites
 
 •	Bash 4.0+.
+
 •	Installed tools: tar, gpg, aws (for S3 uploads; optional).
+
 •	Permissions for target directories and GPG keyring.
+
 •	For notifications: mail command or SMTP configuration.
 Configuration File Example (config.ini)
 Create a simple INI-style config file for easy customization:
 
 
-1.	Testing and Extension: 
+	Testing and Extension: 
 # To-Do Before Implementation in a Real-World Environment:
 o	Test with sample directories and a test GPG key (gpg --gen-key).
 o	Add unit tests using Bats framework.
